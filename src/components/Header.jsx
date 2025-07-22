@@ -23,7 +23,7 @@ function Header() {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>
-            <Link to="/cart">Cart ({cartItems.length} items)</Link>
+            <Link to="/cart">Cart ({cartItems.length})</Link>
           </li>
         </ul>
       </div>
