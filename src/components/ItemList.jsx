@@ -43,7 +43,7 @@ function ItemList({ items }) {
             <img
               src={ITEM_URL + item?.card?.info?.imageId}
               alt="item-image"
-              className="h-35 mx-auto rounded-md"
+              className="h-35 mx-auto rounded-md border"
             />
             <button
               className="add-btn cursor-pointer border rounded-xl py-1 px-4 my-2 bg-amber-400 hover:bg-amber-200 active:bg-amber-400"

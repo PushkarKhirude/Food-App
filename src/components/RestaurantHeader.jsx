@@ -25,7 +25,7 @@ const RestaurantHeader = ({
         <img
           src={ITEM_URL + cloudinaryImageId}
           alt="item-image"
-          className="h-35 rounded-md"
+          className="h-35 rounded-md border"
         />
       </div>
     </div>
