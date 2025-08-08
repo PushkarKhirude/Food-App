@@ -36,7 +36,10 @@ const Cart = () => {
         >
           <div className="item-description text-left m-3 w-8/12  items-baseline">
             <h2 className="item-name font-bold ">{item?.card?.info?.name}</h2>
-            <p className="text-xs my-4"> {item?.card?.info?.description} </p>
+            <p className="text-xs my-4 hidden md:block">
+              {" "}
+              {item?.card?.info?.description}{" "}
+            </p>
             <span className="price text-xl mr-4">
               {" "}
               ₹

@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { RES_URL } from "../utils/constants";
 import RestaurantCategory from "./RestaurantCategory";
+import RestaurantHeader from "./RestaurantHeader";
 
 function RestaurantMenu() {
   const [resInfo, setResInfo] = useState(null);
@@ -19,12 +20,20 @@ function RestaurantMenu() {
     const data = await fetch(RES_URL + resId);
     const json = await data.json();
 
-    //console.log(json.data);
+    console.log(json.data);
     setResInfo(json?.data);
   };
 
   if (resInfo === null) return <Shimmer />;
-  const { name, cloudinaryImageId } = resInfo?.cards[2]?.card?.card?.info;
+  const {
+    name,
+    cloudinaryImageId,
+    locality,
+    city,
+    totalRatingsString,
+    avgRating,
+    cuisines,
+  } = resInfo?.cards[2]?.card?.card?.info;
 
   const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
@@ -37,8 +46,15 @@ function RestaurantMenu() {
 
   return (
     <div className="menu text-center">
-      <h1 className="font-bold my-6 text-2xl ">{name}</h1>
-      <h2 className="font-bold my-6 text-xl ">Menu</h2>
+      <RestaurantHeader
+        name={name}
+        cloudinaryImageId={cloudinaryImageId}
+        locality={locality}
+        city={city}
+        totalRatingsString={totalRatingsString}
+        avgRating={avgRating}
+        cuisines={cuisines}
+      />
       <ul>
         {categories.map((category, index) => (
           <RestaurantCategory
